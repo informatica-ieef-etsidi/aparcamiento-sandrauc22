@@ -1,6 +1,9 @@
+/*El programa resuelto con cadena de caracteres esta comentado detras de los for que lo sustituyen ya que por algun problema del
+visual no me deja guardarlos en memoria. He probado el mismo programa escribiendolo en notepad y compilandolo mediante el compilador
+gcc y si que funciona, debe ser algun asunto de seguridad del visual.*/
 #include <stdio.h>
 #include <string.h> 
-/*hay que incluir la libreria string.h para poder usar strcmp, linea 48*/
+/*hay que incluir la libreria string.h para poder usar strcmp, linea 72*/
 
 void main() {
 	int estado_p1 = 0, estado_p2 = 0; /*si estan a 0 es que estan libres*/
