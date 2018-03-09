@@ -1,9 +1,6 @@
-/*El programa resuelto con cadena de caracteres esta comentado detras de los for que lo sustituyen ya que por algun problema del
-visual no me deja guardarlos en memoria. He probado el mismo programa escribiendolo en notepad y compilandolo mediante el compilador
-gcc y si que funciona, debe ser algun asunto de seguridad del visual.*/
 #include <stdio.h>
 #include <string.h> 
-/*hay que incluir la libreria string.h para poder usar strcmp, linea 72*/
+/*hay que incluir la libreria string.h para poder usar strcmp, linea 48*/
 
 void main() {
 	int estado_p1 = 0, estado_p2 = 0; /*si estan a 0 es que estan libres*/
@@ -29,30 +26,16 @@ void main() {
 				printf("No quedan plazas libres\n");
 			}
 			else if (estado_p1 == 0) { /* esta libre la plaza 1*/
-				for (i = 0; i < 7; i++) {
-					printf("Introduce el caracter %d de la matricula\n", i + 1);
-					getchar();
-					scanf_s("%c", &matric_p1[i]);
-				}
-			estado_p1 = 1;/*Actualizo que la plaza esta ocupada*/
-			printf("\nCoche aparcado\n");
-				/*printf("Introduzca su matricula:");
-				scanf_s("%s", matric_p1);
+				printf("Introduzca su matricula:");
+				scanf_s("%s", matric_p1,8);
 				estado_p1 = 1; 
-				printf("\nCoche aparcado\n");*/
+				printf("\nCoche aparcado\n");
 			}
 			else { /*estaba ocupada la plaza 1, sigue libre la 2*/
-				for (i = 0; i < 7; i++) {
-					printf("Introduce el caracter %d de la matricula\n", i + 1);
-					getchar();
-					scanf_s("%c", &matric_p2[i]);
-				}
-			estado_p2 = 1;
-			printf("\nCoche aparcado\n");
-				/*printf("Introduzca su matricula:");
-				scanf_s("%s", matric_p2);
+				printf("Introduzca su matricula:");
+				scanf_s("%s", matric_p2,8);
 				estado_p2 = 1;
-				printf("\nCoche aparcado\n");*/
+				printf("\nCoche aparcado\n");
 			}
 			break;
 
@@ -62,18 +45,13 @@ void main() {
 				printf("No hay coches en el aparcamiento para retirar\n");
 			}
 			else {
-				for (i = 0; i < 7; i++) {
-					printf("Introduce el caracter %d de la matricula del coche a retirar\n", i + 1);
-					getchar();
-					scanf_s("%c", &matricula[i]);
-				}
-				/*printf("Introduzca la matricula del coche a retirar:");
-				scanf_s("%s", matricula);*/
-				if (strcmp(matricula, matric_p1) == 1) {
+				printf("Introduzca la matricula del coche a retirar:");
+				scanf_s("%s", matricula,8);
+				if (strcmp(matricula, matric_p1) == 0) {
 					estado_p1 = 0; /*Actualizo que se ha quedado vacia la plaza*/
 					printf("\nCoche retirado\n");
 				}
-				else if (strcmp(matricula, matric_p2) == 1) { /*Entra si las matriculas son iguales*/
+				else if (strcmp(matricula, matric_p2) == 0) { /*Entra si las matriculas son iguales*/
 					estado_p2 = 0;
 					printf("\nCoche retirado\n");
 				}
@@ -103,5 +81,6 @@ void main() {
 		}
 		system("pause");
 		system("cls");
+		getchar();
 	}
 }
