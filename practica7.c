@@ -295,7 +295,7 @@ void recuento(struct plaza aparcamiento[], int dim, int *nLibresCoches, int *nLi
 	*nLibresCoches = 0;
 	*nLibresMotos = 0;
 	for (i = 0; i < dim; i++) {
-		if (i < dim / 2) {
+		if (aparcamiento[i].tipo == 'C') {
 			if (aparcamiento[i].estado == 0) {
 				*nLibresCoches = *nLibresCoches + 1;
 			}
